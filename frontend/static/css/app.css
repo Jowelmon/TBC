@@ -820,6 +820,8 @@ code { font-size: max(0.9em, 14px); }
 .ai-flow-row.ai-flow { margin-bottom: 16px; }
 .ai-flow-row { display: flex; align-items: stretch; gap: 8px; flex-wrap: wrap; }
 .ai-flow-step { flex: 1 1 180px; border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: var(--bg-input); }
+.ai-flow-ai { border-color: var(--purple, #7C3AED); }
+.ai-flow-human { border-color: var(--green); }
 .ai-flow-k { font-size: 14px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-dim); }
 .ai-flow-v { font-size: 16px; font-weight: 600; color: var(--text-bright); margin: 2px 0 4px; }
 .ai-flow-d { font-size: 14px; color: var(--text-dim); line-height: 1.4; }

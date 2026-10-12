@@ -464,6 +464,7 @@ export function renderDashboard(el, state, h) {
       allCases = snapshots.filter(s => s);
       renderView();
     } catch (e) {
+      renderHead();
       setHTML('cases-tbody', `<tr><td colspan="8" class="muted">Error: ${esc(e.message)}</td></tr>`);
     }
   }
@@ -504,7 +505,7 @@ export function renderDashboard(el, state, h) {
     setHTML('stats-row', STAT_FILTERS.map(f => {
       const on = (dashView.filter || 'all') === f.id;
       return `<button type="button" class="stat ${f.cls}" data-filter="${f.id}" aria-pressed="${on}" title="${on && f.id !== 'all' ? 'Show all cases' : `Show ${esc(f.label.toLowerCase())} only`}">
-        <div class="stat-val">${cases.filter(f.match).length}</div><div class="stat-lbl">${f.label}</div></button>`;
+        <div class="stat-val">${f.id === 'all' ? cases.length : cases.filter(f.match).length}</div><div class="stat-lbl">${f.label}</div></button>`;
     }).join(''));
     document.getElementById('stats-row')?.classList.toggle('filtering', (dashView.filter || 'all') !== 'all');
     document.querySelectorAll('#stats-row [data-filter]').forEach(b => b.addEventListener('click', () => setFilter(b.dataset.filter)));
